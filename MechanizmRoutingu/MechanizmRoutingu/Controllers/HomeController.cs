@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MechanizmRoutingu.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,9 +11,18 @@ namespace MechanizmRoutingu.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public string Index()
+        public ActionResult Index()
         {
-            var wynik = RouteTable;
+
+            List<Contacts> con = new List<Contacts>();
+
+            con.Add(new Contacts { Name = "Lukasz", LastName = "Dabrowski", Street = "Owsiana", City = "Gdynia" });
+            con.Add(new Contacts { Name = "Tomasz", LastName = "Dabrowski", Street = "Gniewska", City = "Gdynia" });
+            con.Add(new Contacts { Name = "Dorota", LastName = "Dabrowski", Street = "Gniewska", City = "Gdynia" });
+
+            ViewBag.Contact = con;
+
+            return View();
         }
     }
 }

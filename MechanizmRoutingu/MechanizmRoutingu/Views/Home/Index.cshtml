@@ -1,0 +1,12 @@
+﻿<h1>MechanizmRoutingu</h1>
+
+<div>
+    @{
+        foreach (var con in ViewBag.Contact)
+        {
+            <p>
+                @con.Name ,@con.LastName
+            </p>
+        }
+    }
+</div>
