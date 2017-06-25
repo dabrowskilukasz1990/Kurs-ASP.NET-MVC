@@ -1,0 +1,29 @@
+﻿@model HTML_Helpers.Models.Pracownik
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(a => a.Imie)
+    @Html.TextBoxFor(a => a.Imie)
+
+    @Html.LabelFor(a => a.Nazwisko)
+    @Html.TextBoxFor(a => a.Nazwisko)
+
+    @Html.LabelFor(a => a.Email)
+    @Html.TextBoxFor(a => a.Email)
+
+    @Html.LabelFor(a => a.NumerTelefonu)
+    @Html.TextBoxFor(a => a.NumerTelefonu)
+
+    @Html.LabelFor(a => a.Pytanie)
+    @Html.TextBoxFor(a => a.Pytanie)
+
+    <input type="submit" value="Wyślij" />
+}
+
+@Html.

@@ -1,0 +1,29 @@
+﻿@model HtmlHelpers2_DynamiczneHelpery.Models.Helpers
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h4>Zwykły helper który określamy sami:</h4>
+@Html.TextBoxFor(a => a.DateTime)
+@Html.CheckBoxFor(a => a.Bool)
+@Html.TextBoxFor(a => a.String)
+@Html.TextBoxFor(a => a.Decimal)
+@Html.TextBoxFor(a => a.Int)<br />
+
+<h4>EditorFor helper który jest określany automatycznie (Edycja jest możliwa):</h4>
+@Html.EditorFor(a => a.DateTime) @*EditorFor określa automatycznie na podstawie dostarczonych danych jaki helper użyć*@
+@Html.EditorFor(a => a.Bool)
+@Html.EditorFor(a => a.String)<br />
+
+<h4>EditorFor helper który jest określany automatycznie (Edycja nie możliwa):</h4>
+@Html.DisplayFor(a => a.DateTime) @*DisplayFor również automatycznie określa jaki helper użyć z tym że nie można go edytować.*@
+@Html.DisplayFor(a => a.Bool)
+@Html.DisplayFor(a => a.String)<br />
+
+<h4>Generuje automatycznie dla całej klasy, czyli zawartości która jest w kat. Models. Oraz z etykietami</h4>
+@Html.EditorFor(a => a)
+
+
+

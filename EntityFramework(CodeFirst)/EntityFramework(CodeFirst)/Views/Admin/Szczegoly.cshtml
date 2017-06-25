@@ -1,0 +1,58 @@
+﻿@model EntityFramework_CodeFirst_.Models.Kontakt
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kontakt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NowePole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NowePole)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pytanie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pytanie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edytuj", new { id = Model.KontaktId }) |
+    @Html.ActionLink("Wróć do listy głównej", "Index")
+</p>

@@ -1,0 +1,28 @@
+﻿
+@helper Podswietlenie(string str) //Deklaracja helpera deklaratywnego
+{
+    <span style="background-color: yellow">
+        @str
+    </span>
+}
+
+@helper Obliczenia(int a, int b, Func<int, int, int> oblicz)
+{
+var wynik = oblicz(a, b);
+
+    if (wynik % 2 == 0)
+    {
+        @Podswietlenie(wynik.ToString())
+    }
+    else
+    {
+        <span>@wynik</span>
+    }
+}
+
+@helper Mnozenie(int a,int b)
+{
+    int wynik = a * b;
+
+    <h5>@wynik</h5>
+}

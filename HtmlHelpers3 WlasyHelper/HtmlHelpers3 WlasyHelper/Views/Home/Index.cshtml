@@ -1,0 +1,41 @@
+﻿@using HtmlHelpers3_WlasyHelper.Helpers
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@*Helper KLASYCZNY - w plikach C#*@
+
+<h4>Helper Klasyczny - umiejscowiony w plikach C# ~/Helpers/ImageHelper.cs</h4>
+
+@Html.Image("aspLogo", "http://www.asp.net/images/ui/asplogo-new.png", "ASP.NET logo") @*Nasz własny helper, zobacz do kat. Helpers*@
+
+@*Helper Deklaratywny - Lokalny (Występuje on tylko w tym pliku a nie w całym projekcie. Piszemy za pomocą HTMLa)*@
+
+<h4>Helper Deklaratywny - umiejscowiony w plikach widoku ~/View/Index.cshtml</h4>
+
+
+@helper Podswietlenie(string str) //Deklaracja helpera deklaratywnego
+{
+    <span style="background-color: yellow">
+        @str
+    </span>
+}
+<br />
+@Podswietlenie("Tekst do podświetlenia (Deklaratywny - Lokalny)")<br /><br /> @*Użycie/Przekazanie tekstu do aplikacji*@
+
+@*Helper Deklaratywny - Globalny (Występuje on w całym projekcie.)*@
+
+@*Deklaracja helpera Deklaratywnego Globalnego znajduje się w pliku ~/App_Code/MojeHelpery.cshtml*@
+
+@MojeHelpery.Podswietlenie("Tekst do podświetlenia (Deklaratywny - Globalny)")
+<br /><br />
+
+@MojeHelpery.Obliczenia(2, 4, (a, b) => a + b)
+<br /><br />
+
+@MojeHelpery.Obliczenia(3, 3, (a, b) => a * b)
+<br /><br />
+
+@MojeHelpery.Mnozenie(5,5)
+<br /><br />

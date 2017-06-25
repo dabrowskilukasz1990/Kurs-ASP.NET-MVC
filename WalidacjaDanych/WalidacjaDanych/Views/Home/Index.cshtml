@@ -1,0 +1,19 @@
+﻿@model WalidacjaDanych.Models.Pracownik
+
+@{
+    Html.EnableClientValidation(true);
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Home")) //Generuje formularz który jest dodany w pliku Models/Pracownik.cs
+{
+    @Html.EditorFor(m => m) //Generuje pola formularza który jest dodany w pliku Models/Pracownik.cs
+
+    <input type="submit" value="Wyślij" />
+}
+

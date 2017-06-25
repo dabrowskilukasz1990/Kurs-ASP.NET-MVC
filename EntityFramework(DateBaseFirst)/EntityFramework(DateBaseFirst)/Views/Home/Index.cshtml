@@ -1,0 +1,24 @@
+﻿@model IEnumerable<EntityFramework_DateBaseFirst_.Models.Kontakty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var item in Model)
+{
+    @item.Imie;
+    @item.Nazwisko;
+    @item.Email;<br />
+}
+
+@*1. Tworzymy bazę danych
+2. Dodaliśmy tabelę Kontakty i wypełniliśmy danymi
+3. Utworzyliśmy projekt
+4. Dodaliśmy HomeController.cs
+5. Dodaliśmy widok
+6. Dodaliśmy klasy model które wygenerowane zostały automatycznie na podstawie bazy danych
+7. W HomeControllerze zadeklarowaliśmy bazę danych i pobraliśmy kontkty
+8. Przekazaliśmy kontkaty do widoku
+9. I przekazaliśmy do wyświetlenia poprzez pętle foreach.*@

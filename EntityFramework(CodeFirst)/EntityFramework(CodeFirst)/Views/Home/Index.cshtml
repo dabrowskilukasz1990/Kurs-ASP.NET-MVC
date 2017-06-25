@@ -1,0 +1,15 @@
+﻿@model EntityFramework_CodeFirst_.Models.Kontakt
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    @using (Html.BeginForm("DodajKontakt", "Home"))
+    {
+        @Html.EditorFor(m => m)
+        <input type="submit" value="Wyślij"/>
+    }
+</div>
