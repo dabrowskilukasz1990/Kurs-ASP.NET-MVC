@@ -1,0 +1,49 @@
+﻿@model AjaxBeginForm.Models.Album
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@*//Zwykła matoda (Z UŻYCIEM HELPERA)
+
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        @Html.EditorFor(m => m)
+        <input type="submit" value="Wyślij" />
+    }*@
+@*Metoda za pomocą AJAX aby nie była przeładowywana strona, tylko odświeżane dane formularza.*@
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    //UpdateTargetId = "formResult",
+    HttpMethod = "post",
+    OnSuccess = "Update"
+
+
+}))
+
+{
+    @Html.EditorFor(m => m)
+    <input type="submit" value="Wyślij" />
+}
+<div id="formResult"></div>
+@*Biblioteka Mustache*@
+<script src="~/Scripts/mustache.js"></script>
+
+
+<script id="albumTmp" type="text/template">
+    <h1>{{Tytul}}</h1>
+    <h2>Autor: {{Autor}}</h2>
+    <p>Cena: {{Cena}}</p>
+</script>
+
+<script>
+    function Update(result) {
+        var template = $('#albumTmp').html();
+        var html = Mustache.to_html(template, result);
+        $('#formResult').html(html);
+
+    }
+</script>
