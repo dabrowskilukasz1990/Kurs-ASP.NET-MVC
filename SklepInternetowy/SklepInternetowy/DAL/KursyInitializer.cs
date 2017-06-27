@@ -7,10 +7,11 @@ using SklepInternetowy.Models;
 
 namespace SklepInternetowy.DAL
 {
-    public class KursyInitializer : DropCreateDatabaseAlways<KursyContext>
-    {
-        //Jest to mechanizm który wypełnia dowolną tabelę dowolnymi danymi 
-        //w celach przetestowania działania bazy danych
+    //TO ZOSTAŁO STWORZONE JAKO SZUSTE, JEST TO MECHANIZM KTÓRY WYPEŁNIA DOWOLNĄ 
+    //TABELĘ DOWOLNYMI DANYMI W CELACH PRZETESTOWANIA DZIAŁANIA BAZY DANYCH
+
+    public class KursyInitializer : DropCreateDatabaseAlways<KursyContext> //Baza danych jest ZAWSZE! usuwana i tworzona na nowo.
+    {                                                                      //TRACIMY WSZYSTKIE DANE !!! Jest to niebezpieczne posunięcie !!! 
 
         protected override void Seed(KursyContext context)
         {

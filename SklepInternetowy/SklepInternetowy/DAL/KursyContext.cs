@@ -16,7 +16,7 @@ namespace SklepInternetowy.DAL
 
         }
 
-        //Wywołanie metody KursyInitializer.cs
+        //Wywołanie metody KursyInitializer.cs, aby nasze dane testowe pojawiły się w bazie danych
         static KursyContext()
         {
             Database.SetInitializer<KursyContext>(new KursyInitializer());
