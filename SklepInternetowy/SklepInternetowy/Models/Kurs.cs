@@ -24,7 +24,11 @@ namespace SklepInternetowy.Models
         public decimal CenaKursu { get; set; }
         public bool Bestseller { get; set; }
         public bool Ukryty { get; set; }
+        public string OpisSkrocony { get; set; } //DODANIE POLA ABY POKAZAć JAK DZIAŁAJA MIGRACJE
+        //Usuwamy pole public string Test { get; set; } //DODANIE KOLEJNEGO POLA W CELACH TESTOWYCH
 
         public virtual Kategoria Kategoria { get; set; }
+
+
     }
 }

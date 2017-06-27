@@ -132,6 +132,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Migrations\README Migrations" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -146,6 +147,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706271855214_InitialCreate.cs" />
+    <Compile Include="Migrations\201706271855214_InitialCreate.Designer.cs">
+      <DependentUpon>201706271855214_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706271911327_dodaniePolaOpisSkrocony.cs" />
+    <Compile Include="Migrations\201706271911327_dodaniePolaOpisSkrocony.Designer.cs">
+      <DependentUpon>201706271911327_dodaniePolaOpisSkrocony.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706271936067_dodaniePolaTest.cs" />
+    <Compile Include="Migrations\201706271936067_dodaniePolaTest.Designer.cs">
+      <DependentUpon>201706271936067_dodaniePolaTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706271937297_usunieciePolaTest.cs" />
+    <Compile Include="Migrations\201706271937297_usunieciePolaTest.Designer.cs">
+      <DependentUpon>201706271937297_usunieciePolaTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Kategoria.cs" />
     <Compile Include="Models\Kurs.cs" />
     <Compile Include="Models\PozycjaZamowienia.cs" />
@@ -174,6 +192,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706271855214_InitialCreate.resx">
+      <DependentUpon>201706271855214_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706271911327_dodaniePolaOpisSkrocony.resx">
+      <DependentUpon>201706271911327_dodaniePolaOpisSkrocony.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706271936067_dodaniePolaTest.resx">
+      <DependentUpon>201706271936067_dodaniePolaTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706271937297_usunieciePolaTest.resx">
+      <DependentUpon>201706271937297_usunieciePolaTest.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

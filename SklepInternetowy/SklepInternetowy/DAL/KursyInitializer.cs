@@ -4,23 +4,26 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using SklepInternetowy.Models;
+using SklepInternetowy.Migrations;
+using System.Data.Entity.Migrations;
 
 namespace SklepInternetowy.DAL
 {
-    //TO ZOSTAŁO STWORZONE JAKO SZUSTE, JEST TO MECHANIZM KTÓRY WYPEŁNIA DOWOLNĄ 
+    //TO ZOSTAŁO STWORZONE JAKO SZÓSTE, JEST TO MECHANIZM KTÓRY WYPEŁNIA DOWOLNĄ 
     //TABELĘ DOWOLNYMI DANYMI W CELACH PRZETESTOWANIA DZIAŁANIA BAZY DANYCH
 
-    public class KursyInitializer : DropCreateDatabaseAlways<KursyContext> //Baza danych jest ZAWSZE! usuwana i tworzona na nowo.
-    {                                                                      //TRACIMY WSZYSTKIE DANE !!! Jest to niebezpieczne posunięcie !!! 
+    //public class KursyInitializer : DropCreateDatabaseAlways<KursyContext> //W tym przypadku baza danych jest ZAWSZE! usuwana i tworzona na nowo.
+    //protected override void Seed(KursyContext context)                     //TRACIMY WSZYSTKIE DANE !!! Jest to niebezpieczne posunięcie !!! 
+    //{
+    //    SeedKursyData(context);
 
-        protected override void Seed(KursyContext context)
-        {
-            SeedKursyData(context);
+    //    base.Seed(context);
+    //}
 
-            base.Seed(context);
-        }
-
-        private void SeedKursyData(KursyContext context)
+    public class KursyInitializer : MigrateDatabaseToLatestVersion<KursyContext, Configuration> //Migruj do ostatniej wersji
+    {
+        //Metoda Seed występuje w konfiguracji migracji.
+        public static void SeedKursyData(KursyContext context)
         {
             //Tworzenie przykładowych danych które wypełnią DB
             var kategorie = new List<Kategoria>
@@ -34,7 +37,7 @@ namespace SklepInternetowy.DAL
                 new Kategoria() { KategoriaId=7, NazwaKategorii="C#", NazwaPlikuIkony="csharp.png", OpisKategorii="obiektowy język programowania zaprojektowany dla platformy .Net" }
             };
 
-            kategorie.ForEach(k => context.Kategorie.Add(k));
+            kategorie.ForEach(k => context.Kategorie.AddOrUpdate(k)); //AddOrUpdate - Zabezpieczenie migracji aby nie duplikowały się elementy.
             context.SaveChanges();
 
             //Tworzenie przykładowych danych które wypełnią DB
@@ -62,7 +65,7 @@ namespace SklepInternetowy.DAL
                 DataDodania = DateTime.Now, OpisKursu="Kurs C# - obiektowy język programowania zaprojektowany dla platformy .Net"}
             };
 
-            kursy.ForEach(k => context.Kursy.Add(k));
+            kursy.ForEach(k => context.Kursy.AddOrUpdate(k)); //AddOrUpdate - Zabezpieczenie migracji aby nie duplikowały się elementy.
             context.SaveChanges();
 
         }

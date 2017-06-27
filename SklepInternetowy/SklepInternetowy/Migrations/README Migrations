@@ -1,0 +1,13 @@
+﻿
+
+Migracje powodują to iż gdy zmienimy coś w naszej bazie danych (dodamy nowe pole czy nową tabele).
+Nie będziemy musieli kasować całej bazy danych tylko będziemy mogli ją zaaktualizwać.
+
+1. Wprowadzmay w Nuget Package Manager Console komendę "enable-migrations" która powoduje włączenie migracji.
+2. Dodajemy pole OpisSkrocony w naszym modelu (~/Models/Kurs.cs).
+3. Wpisujemy w Nuget Console komendę "add-migration 'dodaniePolaOpisSkrocony'", co wywołuje dodanie pola.
+4. Wpisujemy "update-database" aby zaaktualizować całą tabele dbo.Kurs.
+5. Aby cofnąć się do dowolnej migracji wpisujemy "update-database -TargetMigration: (nazwa migracji z pliku Migrations)"
+6. Można to wykonać również w formie "update-database -script". Samo słowo -script wywołuje okno z komendą.
+Możemy sobie wybrać którą migrację chcemy ponownie dodać po podłączniu się do bazy danych.
+7. Usunać pole można poprzez cofnięcie się do innej migracji przez -TargetMigration, lub po prostu usunięcie z modelu konkretnego pola.
