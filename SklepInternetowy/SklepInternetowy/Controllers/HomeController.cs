@@ -19,5 +19,10 @@ namespace SklepInternetowy.Controllers
 
             return View();
         }
+
+        public ActionResult StronyStatyczne(string nazwa) //Definiowanie StronyStatyczne, tam gdzie "nazwa" będzie podstrona.
+        {
+            return View(nazwa);
+        }
     }
 }

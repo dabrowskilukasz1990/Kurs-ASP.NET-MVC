@@ -14,10 +14,18 @@ namespace SklepInternetowy
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "StronyStatyczne",
+                url: "strony/{nazwa}.html",
+                defaults: new { controller = "Home", action = "StronyStatyczne"} //StronyStatyczne jest zdefiniowane w HomeController.cs
             );
+
+            routes.MapRoute(
+            name: "Default",
+            url: "{controller}/{action}/{id}",
+            defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+
         }
     }
 }
